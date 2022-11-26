@@ -12,14 +12,18 @@ public class Main
         final String strB= "dzisiaj mial byc piekny dzien, jednak zobaczylem ze to poniedzialek";
         final String strC= "wiem, ze nic nie wiem";
 
+
+        //Hashowanie MD5
         final String sortAMd5 = Md5Utils.md5(strA);
         final String sortBMd5 = Md5Utils.md5(strB);
         final String sortCMd5 = Md5Utils.md5(strC);
 
+        //Hashowanie SHA-1
         final String sortASha = Sha1Util.sha1(strA);
         final String sortBSha = Sha1Util.sha1(strB);
         final String sortCSha = Sha1Util.sha1(strC);
 
+        //Hashowanie Sha-256 + salt
         final String sortASha256 = Sha256Util.sha256(strA);
         final String sortBSha256 = Sha256Util.sha256(strB);
         final String sortCSha256 = Sha256Util.sha256(strC);
