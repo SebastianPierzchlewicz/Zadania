@@ -1,5 +1,7 @@
 package pl.wojtek;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import pl.wojtek.rsa.RSAGenerator;
 import pl.wojtek.rsa.RSAUtil;
 
@@ -11,6 +13,7 @@ import java.math.BigInteger;
 import java.security.*;
 import java.util.Base64;
 import java.util.Random;
+import java.util.function.Consumer;
 
 public class RsaMain {
 
@@ -43,6 +46,11 @@ public class RsaMain {
 
 
         noMessageAttack();
+
+        check("tes2t", aBoolean -> {
+            System.out.printf(String.valueOf(aBoolean));
+        });
+
     }
 
 
@@ -86,6 +94,16 @@ public class RsaMain {
             return z;
         } else {
             return getEZ(z % e, e);
+        }
+    }
+
+    public static void check(String name, Consumer<Boolean> callback) {
+
+        if (name.equalsIgnoreCase("test")) {
+            callback.accept(true);
+        }
+        else {
+            callback.accept(false);
         }
     }
 }
