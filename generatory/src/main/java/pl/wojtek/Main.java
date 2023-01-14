@@ -12,7 +12,7 @@ import java.util.List;
 public class Main
 {
     public static void main(String args[]) throws IOException {
-        String bitString = LFSRHelper.randomLFSR(5);
+        String bitString = LFSRHelper.randomLFSR(2);
         System.out.println(bitString);
         GeffeCryptanalysis.breakGeffe(
                 Long.parseLong(LFSRHelper.randomLFSR(2)),
