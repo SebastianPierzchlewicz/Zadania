@@ -1,20 +1,36 @@
 package pl.wojtek.geffe;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+public class GeffeGenerator {
+    private LFSR lfsr1;
+    private LFSR lfsr2;
+    private LFSR lfsr3;
+    private StringBuffer gamma;
 
-@AllArgsConstructor
-@Getter
-public class GeffeGenerator
-{
-    private final GeffeData geffeData1;
-    private final GeffeData geffeData2;
-    private final GeffeData geffeData3;
+    public GeffeGenerator(LFSR lfsr1, LFSR lfsr2, LFSR lfsr3) {
+        this.lfsr1 = lfsr1;
+        this.lfsr2 = lfsr2;
+        this.lfsr3 = lfsr3;
+        this.gamma = new StringBuffer();
+    }
 
-    public long next(){
-        long x = geffeData1.next();
-        long y = geffeData2.next();
-        long s = geffeData3.next();
-        return (s & x) ^ ((s ^ 1) & y);
+    public int step() {
+        int x = lfsr1.shift();
+        int y = lfsr2.shift();
+        int s = lfsr3.shift();
+
+        int out = (s & x) ^ ((1 ^ s) & y);
+        gamma.append(out);
+
+        return out;
+    }
+
+    public void step(int n) {
+        for (int i = 0; i < n; i++){
+            step();
+        }
+    }
+
+    public String getGamma() {
+        return gamma.toString();
     }
 }
