@@ -18,9 +18,9 @@ public class GeffeUtil {
         final String inputBit = Long.toBinaryString(random);
         for (int i = 0; i< size; i++) {
             list.add("Dane na wejsciu " + inputBit);
-            Polynomial polynomial1 = new Polynomial(30, 6, 4, 1);
-            Polynomial polynomial2 = new Polynomial(31, 3);
-            Polynomial polynomial3 = new Polynomial(32, 7, 5, 3, 2, 1);
+            Polynomial polynomial1 = new Polynomial(30, 6, 4, 1,22,92,31,31);
+            Polynomial polynomial2 = new Polynomial(31, 3,3,6,2,4,2,3,3,3);
+            Polynomial polynomial3 = new Polynomial(32, 7, 5, 3, 2, 1,2,2,11);
 
             LFSR lfsr1 = new LFSR(polynomial1);
             LFSR lfsr2 = new LFSR(polynomial2);
@@ -59,9 +59,9 @@ public class GeffeUtil {
         final int l3 = generator.nextInt();
         for (int i = 0; i< size; i++) {
             list.add("Dane na wejsciu " + inputBit);
-            Polynomial polynomial1 = new Polynomial(30, 6, 4, 1);
-            Polynomial polynomial2 = new Polynomial(31, 3);
-            Polynomial polynomial3 = new Polynomial(32, 7, 5, 3, 2, 1);
+            Polynomial polynomial1 = new Polynomial(30, 6, 4, 1,22,92,31,31);
+            Polynomial polynomial2 = new Polynomial(31, 3,3,6,2,4,2,3,3,3);
+            Polynomial polynomial3 = new Polynomial(32, 7, 5, 3, 2, 1,2,2,11);
 
             LFSR lfsr1 = new LFSR(polynomial1);
             LFSR lfsr2 = new LFSR(polynomial2);
@@ -122,8 +122,8 @@ public class GeffeUtil {
             final String output = geffe.getGamma();
             list.add("Dane na wyjsciu: " + output);
             if (output.equalsIgnoreCase(inputBit)) {
-                System.out.println("Input == output");
-                list.add("Input == output");
+                System.out.println("Input equals output");
+                list.add("Input equals output");
             }
             list.add("");
         }
