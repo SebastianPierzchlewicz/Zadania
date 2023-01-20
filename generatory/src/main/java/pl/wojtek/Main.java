@@ -1,6 +1,7 @@
 package pl.wojtek;
 
 import pl.wojtek.geffe.GeffeGenerator;
+import pl.wojtek.geffe.GeffeUtil;
 import pl.wojtek.geffe.LFSR;
 import pl.wojtek.geffe.Polynomial;
 
@@ -12,37 +13,31 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String args[]) throws IOException {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Podaj liczbe w bitach");
-        String inputBit = in.nextLine();
-        if (inputBit.chars().anyMatch(value -> value!= 49 && value != 48)) {
-            System.out.println("Podano złe dane wejsciowe!");
-            return;
-        }
-        System.out.println("-=-=-=-=-=-");
-        System.out.println("Dane na wejsciu " + inputBit);
-        Polynomial polynomial1 = new Polynomial(30, 6, 4, 1);
-        Polynomial polynomial2 = new Polynomial(31, 3);
-        Polynomial polynomial3 = new Polynomial(32, 7, 5, 3, 2, 1);
-
-        LFSR lfsr1 = new LFSR(polynomial1);
-        LFSR lfsr2 = new LFSR(polynomial2);
-        LFSR lfsr3 = new LFSR(polynomial3);
-
-        lfsr1.setInitialState(651497879);
-        lfsr2.setInitialState(1259760270);
-        lfsr3.setInitialState(2229332000L);
-
-        GeffeGenerator geffe = new GeffeGenerator(lfsr1, lfsr2, lfsr3);
-
-        geffe.step(inputBit.length());
-
-        System.out.println("LFSR1: " + lfsr1.getOutputSequence());
-        System.out.println("LFSR2: " + lfsr2.getOutputSequence());
-        System.out.println("LFSR3: " + lfsr3.getOutputSequence());
-        System.out.println("Dane na wyjsciu: " + geffe.getGamma());
         System.out.println("-=-=-=-=-=-");
 
+
+        GeffeUtil.randomGeneratorRejestry("Rejestr10",10); //rejestr 10
+        GeffeUtil.randomGeneratorRejestry("Rejestr50",50); //rejestr 50
+        GeffeUtil.randomGeneratorRejestry("Rejestr100",100); //rejestr 100
+
+        GeffeUtil.randomGeneratorRejestry("RadnomSize10",10); //RadnomSize 10
+        GeffeUtil.randomGeneratorRejestry("RadnomSize50",50); //RadnomSize 50
+        GeffeUtil.randomGeneratorRejestry("RadnomSize100",100); //RadnomSize 100
+
+        GeffeUtil.randomGeneratorRejestry("RandomStart10",10); //RandomStart 100
+        GeffeUtil.randomGeneratorRejestry("RandomStart50",50); //RandomStart 50
+        GeffeUtil.randomGeneratorRejestry("RandomStart100",100); //RandomStart 100
+//
+
+
+//        ShrinkingGenerator generator = new ShrinkingGenerator();
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println(generator.nextInt());
+//        }
+//        StopAndGoRandom rng = new StopAndGoRandom();
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println(rng.nextInt());
+//        }
     }
 
 }
