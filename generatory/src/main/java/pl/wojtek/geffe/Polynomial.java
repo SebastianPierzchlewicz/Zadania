@@ -4,12 +4,12 @@ public class Polynomial {
     private long value;
     private int degree;
 
-    public Polynomial(int... coefficients) {
+    public Polynomial(long... coefficients) {
         if (coefficients.length == 1) {
             this.value = coefficients[0];
         } else {
             this.value = 1;
-            for (int i : coefficients) {
+            for (long i : coefficients) {
                 this.value ^= ((long)1 << i);
             }
         }

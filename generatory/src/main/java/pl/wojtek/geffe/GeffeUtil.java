@@ -13,14 +13,14 @@ public class GeffeUtil {
     public static void randomGeneratorRejestry(final String name, int size) {
         final List<String> list = new ArrayList<>();
         final ShrinkingGenerator generator = new ShrinkingGenerator();
-        final int random = RandomUtil.getRandInt(9,99);
-        list.add("Wylosowano randomowa licze : " +random);
+        final int random = RandomUtil.getRandInt(9, 99);
+        list.add("Wylosowano randomowa licze : " + random);
         final String inputBit = Long.toBinaryString(random);
-        for (int i = 0; i< size; i++) {
+        for (int i = 0; i < size; i++) {
             list.add("Dane na wejsciu " + inputBit);
-            Polynomial polynomial1 = new Polynomial(30, 6, 4, 1,22,92,31,31);
-            Polynomial polynomial2 = new Polynomial(31, 3,3,6,2,4,2,3,3,3);
-            Polynomial polynomial3 = new Polynomial(32, 7, 5, 3, 2, 1,2,2,11);
+            Polynomial polynomial1 = new Polynomial(30, 6, 4, 1, 22, 92, 31, 31);
+            Polynomial polynomial2 = new Polynomial(31, 3, 3, 6, 2, 4, 2, 3, 3, 3);
+            Polynomial polynomial3 = new Polynomial(32, 7, 5, 3, 2, 1, 2, 2, 11);
 
             LFSR lfsr1 = new LFSR(polynomial1);
             LFSR lfsr2 = new LFSR(polynomial2);
@@ -45,23 +45,23 @@ public class GeffeUtil {
             }
             list.add("");
         }
-        FileUtil.save(name,list);
+        FileUtil.save(name, list);
     }
 
     public static void randomGeneratorRandomSize(final String name, int size) {
         final List<String> list = new ArrayList<>();
         final ShrinkingGenerator generator = new ShrinkingGenerator();
-        final int random = RandomUtil.getRandInt(1,99999999);
-        list.add("Wylosowano randomowa licze : " +random);
+        final int random = RandomUtil.getRandInt(1, 99999999);
+        list.add("Wylosowano randomowa licze : " + random);
         final String inputBit = Long.toBinaryString(random);
         final int l1 = generator.nextInt();
         final int l2 = generator.nextInt();
         final int l3 = generator.nextInt();
-        for (int i = 0; i< size; i++) {
+        for (int i = 0; i < size; i++) {
             list.add("Dane na wejsciu " + inputBit);
-            Polynomial polynomial1 = new Polynomial(30, 6, 4, 1,22,92,31,31);
-            Polynomial polynomial2 = new Polynomial(31, 3,3,6,2,4,2,3,3,3);
-            Polynomial polynomial3 = new Polynomial(32, 7, 5, 3, 2, 1,2,2,11);
+            Polynomial polynomial1 = new Polynomial(30, 6, 4, 1, 22, 92, 31, 31);
+            Polynomial polynomial2 = new Polynomial(31, 3, 3, 6, 2, 4, 2, 3, 3, 3);
+            Polynomial polynomial3 = new Polynomial(32, 7, 5, 3, 2, 1, 2, 2, 11);
 
             LFSR lfsr1 = new LFSR(polynomial1);
             LFSR lfsr2 = new LFSR(polynomial2);
@@ -86,23 +86,23 @@ public class GeffeUtil {
             }
             list.add("");
         }
-        FileUtil.save(name,list);
+        FileUtil.save(name, list);
     }
 
     public static void randomGeneratorRandomStart(final String name, int size) {
         final List<String> list = new ArrayList<>();
         final ShrinkingGenerator generator = new ShrinkingGenerator();
-        final int random = RandomUtil.getRandInt(1,99999999);
-        list.add("Wylosowano randomowa licze : " +random);
+        final int random = RandomUtil.getRandInt(1, 99999999);
+        list.add("Wylosowano randomowa licze : " + random);
         final String inputBit = Long.toBinaryString(random);
         final int l1 = generator.nextInt();
         final int l2 = generator.nextInt();
         final int l3 = generator.nextInt();
-        for (int i = 0; i< size; i++) {
+        for (int i = 0; i < size; i++) {
             list.add("Dane na wejsciu " + inputBit);
-            Polynomial polynomial1 = new Polynomial(RandomUtil.getRandInt(1,99), RandomUtil.getRandInt(1,99), RandomUtil.getRandInt(1,99), RandomUtil.getRandInt(1,99));
-            Polynomial polynomial2 = new Polynomial(RandomUtil.getRandInt(1,99), RandomUtil.getRandInt(1,99), RandomUtil.getRandInt(1,99), RandomUtil.getRandInt(1,99));
-            Polynomial polynomial3 = new Polynomial(RandomUtil.getRandInt(1,99), RandomUtil.getRandInt(1,99), RandomUtil.getRandInt(1,99), RandomUtil.getRandInt(1,99));
+            Polynomial polynomial1 = new Polynomial(RandomUtil.getRandInt(1, 99), RandomUtil.getRandInt(1, 99), RandomUtil.getRandInt(1, 99), RandomUtil.getRandInt(1, 99));
+            Polynomial polynomial2 = new Polynomial(RandomUtil.getRandInt(1, 99), RandomUtil.getRandInt(1, 99), RandomUtil.getRandInt(1, 99), RandomUtil.getRandInt(1, 99));
+            Polynomial polynomial3 = new Polynomial(RandomUtil.getRandInt(1, 99), RandomUtil.getRandInt(1, 99), RandomUtil.getRandInt(1, 99), RandomUtil.getRandInt(1, 99));
 
             LFSR lfsr1 = new LFSR(polynomial1);
             LFSR lfsr2 = new LFSR(polynomial2);
@@ -127,6 +127,61 @@ public class GeffeUtil {
             }
             list.add("");
         }
-        FileUtil.save(name,list);
+        FileUtil.save(name, list);
+    }
+
+    public static void randomLongRuns(final String name, int size) {
+        final List<String> negative = new ArrayList<>();
+        final List<String> list = new ArrayList<>();
+        final long random = RandomUtil.getRandLong(9999999999999999L, 999999999999999999L);
+        list.add("Wylosowano randomowa licze : " + random);
+        final String inputBit = Long.toBinaryString(random);
+        for (int i = 0; i < size; i++) {
+            list.add("Dane na wejsciu " + inputBit);
+            Polynomial polynomial1 = new Polynomial(RandomUtil.getRandLong(9999999999999999L, 999999999999999999L), RandomUtil.getRandLong(9999999999999999L, 999999999999999999L), RandomUtil.getRandLong(9999999999999999L, 999999999999999999L));
+            Polynomial polynomial2 = new Polynomial(RandomUtil.getRandLong(9999999999999999L, 999999999999999999L), RandomUtil.getRandLong(9999999999999999L, 999999999999999999L), RandomUtil.getRandLong(9999999999999999L, 999999999999999999L));
+            Polynomial polynomial3 = new Polynomial(RandomUtil.getRandLong(9999999999999999L, 999999999999999999L), RandomUtil.getRandLong(9999999999999999L, 999999999999999999L), RandomUtil.getRandLong(9999999999999999L, 999999999999999999L));
+
+            LFSR lfsr1 = new LFSR(polynomial1);
+            LFSR lfsr2 = new LFSR(polynomial2);
+            LFSR lfsr3 = new LFSR(polynomial3);
+
+            lfsr1.setInitialState(RandomUtil.getRandLong(9999999999999999L, 999999999999999999L));
+            lfsr2.setInitialState(RandomUtil.getRandLong(9999999999999999L, 999999999999999999L));
+            lfsr3.setInitialState(RandomUtil.getRandLong(9999999999999999L, 999999999999999999L));
+
+            GeffeGenerator geffe = new GeffeGenerator(lfsr1, lfsr2, lfsr3);
+
+            geffe.step(inputBit.length());
+
+            list.add("LFSR1: " + lfsr1.getOutputSequence());
+            list.add("LFSR2: " + lfsr2.getOutputSequence());
+            list.add("LFSR3: " + lfsr3.getOutputSequence());
+            final String output = geffe.getGamma();
+            list.add("Dane na wyjsciu: " + output);
+            if (output.length() > 26) {
+                list.add("Output size wieksze od 26");
+                if (checkNegativeNumber(output)) {
+                    negative.add(output);
+                }
+            }
+            list.add("");
+        }
+        list.add("Wynik testu:");
+        if (negative.isEmpty()) {
+            list.add("Pozytywny! Nie znaleziono samych 1 lub 0");
+        } else {
+            list.add("Negatywny! Odnaleziono same 1 lub 0:");
+            negative.forEach(s -> {
+                list.add(s);
+            });
+        }
+        FileUtil.save(name, list);
+    }
+
+    public static boolean checkNegativeNumber(String bin) {
+        var chats = bin.toCharArray();
+        final char firstLetter = chats[0];
+        return bin.chars().noneMatch(value -> value != firstLetter);
     }
 }
